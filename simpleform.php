@@ -1,3 +1,6 @@
+<?php
+include_once("inc/navbar.php")
+?>
 <!DOCTYPE html>
 <html>
 <head>
