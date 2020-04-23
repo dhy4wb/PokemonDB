@@ -2,6 +2,8 @@
 runtime: php73
 
 # Defaults to "serve index.php" 
-#entrypoint: serve simpleform.php
+entrypoint: serve controller.php
 
 # If your main page is index.php, comment the above entrypoint setting 
+runtime_config:
+  document_root: .
