@@ -4,5 +4,10 @@ include_once("inc/navbar.php")
 ?>
 
 <html>
-  <p>index page is here boi</p>
+	<head>
+		<title>PokemonFinder Homepage</title>
+	</head>
+	<body>
+		<p>index page is here boi</p>
+	</body>
 </html>

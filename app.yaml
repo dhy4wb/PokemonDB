@@ -4,6 +4,13 @@ runtime: php73
 # Defaults to "serve index.php" 
 entrypoint: serve controller.php
 
+#Need env variables for databse access
+env_variables:
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/cs4750pokemon:us-east4:pokemon-db2;dbname=pokemon_database
+  MYSQL_USER: root
+  MYSQL_PASSWORD: "admin123"
+
+
 # If your main page is index.php, comment the above entrypoint setting 
 runtime_config:
   document_root: .
