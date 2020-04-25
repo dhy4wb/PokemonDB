@@ -9,6 +9,10 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/simpleform':
         require 'simpleform.php';
         break;
+    case '/ability':
+        require 'ability.php';
+    case '/type':
+        require 'type.php';
 		case '/profile':
 				require 'profile.php';
 				break;
