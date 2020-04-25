@@ -11,14 +11,16 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
         break;
     case '/ability':
         require 'ability.php';
+        break;
     case '/type':
         require 'type.php';
+        break;
     case '/profile':
-	require 'profile.php';
-	break;
+	      require 'profile.php';
+        break;
     case '/signup':
-	require 'signup.php';
-	break;
+        require 'signup.php';
+        break;
     default:
         http_response_code(404);
         exit('Not Found');
