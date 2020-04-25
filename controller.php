@@ -11,6 +11,7 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
         break;
     case '/ability':
         require 'ability.php';
+        break;
     case '/type':
         require 'type.php';
 		case '/profile':
