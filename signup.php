@@ -20,18 +20,13 @@
 		else {
 			//create new account
 			$succesful = create_user($_POST["username"], $_POST["email"], md5($_POST["password"]));
-			if ($successful) {
-				$_SESSION["username"] = $_POST["username"];
-				$_SESSION["email"] = $_POST["email"];
-				$_SESSION["biography"] = NULL;
-				header("Location: https://cs4750pokemon.uk.r.appspot.com/profile");
-			}
-			else {
-				echo '<script language="javascript">';
-				echo 'alert("Account creation failed. Please double check email format")';
-				echo '</script>';
-
-			}
+			$_SESSION["username"] = $_POST["username"];
+			$_SESSION["email"] = $_POST["email"];
+			$_SESSION["biography"] = NULL;
+			header("Location: https://cs4750pokemon.uk.r.appspot.com/profile");
+			//echo '<script language="javascript">';
+			//echo 'alert("Account creation failed. Please double check email format")';
+			//echo '</script>';
 		}
 	}
 	else{
