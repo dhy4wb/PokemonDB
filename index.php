@@ -34,10 +34,10 @@ while($row = $result->fetch()) {
       <tr>
         <th scope="row">',$row['pid'],'</th>
         <td> ',$row['name'],' </td>
-        <td>', '<a href="type/name='.$type['type_name'].'"">'.$type['type_name'].'</a>','</td>
-        <td>', '<a href="ability/id='.$ability[0]['aid'].'"">'.$ability[0]['name'].'</a>','</td>
-        <td>', '<a href="ability/id='.$ability[1]['aid'].'"">'.$ability[1]['name'].'</a>','</td>
-        <td>', '<a href="ability/id='.$ability[2]['aid'].'"">'.$ability[2]['name'].'</a>','</td>
+        <td>', '<a href="type?name='.$type['type_name'].'"">'.$type['type_name'].'</a>','</td>
+        <td>', '<a href="ability?id='.$ability[0]['aid'].'"">'.$ability[0]['name'].'</a>','</td>
+        <td>', '<a href="ability?id='.$ability[1]['aid'].'"">'.$ability[1]['name'].'</a>','</td>
+        <td>', '<a href="ability?id='.$ability[2]['aid'].'"">'.$ability[2]['name'].'</a>','</td>
 
       </tr>
       ';
