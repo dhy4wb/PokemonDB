@@ -37,3 +37,4 @@ catch (Exception $e)       // handle any type of exception
    $error_message = $e->getMessage();
    echo "<p>Error message: $error_message </p>";
 }
+?>
