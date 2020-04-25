@@ -10,7 +10,7 @@
 		$statement->bindValue(":username", $username);
 		$statement->bindValue(":password", $password);
 		$statement->execute();
-		$results = $statement->fetchAll(); 
+		$results = $statement->fetchAll();
 		$statement->closeCursor();
 		/*
 		if(count($results) == 0){
@@ -76,4 +76,14 @@
 		$statement->closeCursor();
 		return $results;
 	}
+  function get_pokemons($username) {
+    global $db;
+    $query = "SELECT name FROM likes NATURAL JOIN Pokemon WHERE username = :username";
+    $statement = $db->prepare($query);
+    $statement->bindValue(":username", $username);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    return $results;
+  }
 ?>
