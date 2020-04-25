@@ -19,6 +19,12 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
 		case '/signup':
 				require 'signup.php';
 				break;
+		case '/delete_account':
+				require 'delete_account.php';
+				break;
+		case '/logout':
+				require 'logout.php';
+				break;
     default:
         http_response_code(404);
         exit('Not Found');
