@@ -18,7 +18,7 @@
   }
   $arrow_pid = $column == 'pid' ? '-'.$up_or_down : '';
   $arrow_name = $column == 'name' ? '-'.$up_or_down : '';
-  echo $_SESSION['username'];
+  // echo $_SESSION['username'];
   echo '
       <head>
         <title>Pokemon Database</title>

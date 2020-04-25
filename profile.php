@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	//session_start();
 	require("inc/navbar.php");
 	require("inc/connectdb.php");
 	require("inc/database_functions.php");
@@ -44,6 +44,22 @@
 			<div class="item2">
 				<h1><?php echo $_SESSION["username"]?></h2>
 				<p><?php echo $_SESSION["email"]?></p>
+				<button onclick="deleteFunction()" class="btn btn-danger">Delete Account</button>
+				<script>
+					function deleteFunction() {
+						if (confirm("Are you sure you want to delete this account?")) {
+							location.replace("https://cs4750pokemon.uk.r.appspot.com/delete_account");
+						}
+					}
+				</script>
+				<button onclick="logoutFunction()" class="btn btn-light">Logout</button>
+				<script>
+					function logoutFunction() {
+						if (confirm("Are you sure you want to logout?")) {
+							location.replace("https://cs4750pokemon.uk.r.appspot.com/logout");
+						}
+					}
+				</script>
 			</div>
 			<div class="item3">
 				<h1>About Me</h1>
@@ -56,6 +72,12 @@
 			</div>
 			<div class="item4">
 				<h1>Friends</h1>
+				<?php
+					$friends = get_friends($_SESSION["username"]);
+					foreach($friends as $friend){
+						echo $friend."</br>";
+					}
+				?>
 			</div>
 		</div>
 		

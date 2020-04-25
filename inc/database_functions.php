@@ -56,4 +56,24 @@
 		$statement->execute();
 		$statement->closeCursor();
 	}
+
+	function delete_user($username) {
+		global $db;
+		$query = "DELETE FROM user WHERE username = :username";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":username", $username);
+		$statement->execute();
+		$statement->closeCursor();
+	}
+
+	function get_friends($username) {
+		global $db;
+		$query = "SELECT user2 FROM friend WHERE user1 = :username";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":username", $username);
+		$statement->execute();
+		$results = $statement->fetchAll();
+		$statement->closeCursor();
+		return $results;
+	}
 ?>
