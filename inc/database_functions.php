@@ -88,4 +88,25 @@
     return $results;
   }
 
+	function get_search_pokemon($search_term) {
+		global $db;
+		$query = "SELECT name FROM Pokemon WHERE name LIKE CONCAT(:search_term, '%')";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":search_term", $search_term);
+		$statement->execute();
+		$results = $statement->fetchAll();
+		$statement->closeCursor();
+		return $results;
+	}
+
+	function search_users($search_term) {
+		global $db;
+		$query = "SELECT username FROM user WHERE username LIKE CONCAT(:search_term, '%')";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":search_term", $search_term);
+		$statement->execute();
+		$results = $statement->fetchAll();
+		$statement->closeCursor();
+		return $results;
+	}
 ?>

@@ -27,9 +27,9 @@
 
 
 
-				<form class="navbar-form navbar-left" action="">
+				<form class="navbar-form navbar-left" action="/search_result" method="get">
 					<div class = "input-group">
-						<input type="text" class="form-control" placeholder="Search Pokemon">
+						<input type="text" name="search_term" class="form-control" placeholder="Search Pokemon">
 						<div class="input-group-btn">
 							<button class="btn btn-default" type="submit">
 								<i class="glyphicon glyphicon-search"></i>
