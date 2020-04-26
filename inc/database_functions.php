@@ -66,6 +66,17 @@
 		$statement->closeCursor();
 	}
 
+	function add_friends($username1, $username2) {
+		global $db;
+		$query = "INSERT INTO friend VALUES (:user1, :user2)";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":user1", $username1);
+		$statement->bindValue(":user2", $username2);
+		$success = $statement->execute();
+		$statement->closeCursor();
+		return $success;
+	}
+
 	function get_friends($username) {
 		global $db;
 		$query = "SELECT user2 FROM friend WHERE user1 = :username";
