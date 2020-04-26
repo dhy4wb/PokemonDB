@@ -76,4 +76,15 @@
 		$statement->closeCursor();
 		return $results;
 	}
+
+	function get_favorite_pokemon($username) {
+		global $db;
+		$query = "SELECT pid FROM user NATURAL JOIN likes WHERE username = :username";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":username", $username);
+		$statemenr->execute();
+		$results = $statement->fetchAll();
+		$statement->closeCursor();
+		return $results;
+	}
 ?>

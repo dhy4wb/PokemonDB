@@ -69,13 +69,19 @@
 			</div>
 			<div class="item5">
 				<h1>Favorite Pokemon</h1>
+				<?php
+					$favs = get_favorite_pokemon($_SESSION["username"]);
+					foreach($favs as $fav) {
+						echo $fav[0]."</br>";
+					}
+				?>
 			</div>
 			<div class="item4">
 				<h1>Friends</h1>
 				<?php
 					$friends = get_friends($_SESSION["username"]);
 					foreach($friends as $friend){
-						echo $friend."</br>";
+						echo $friend[0]."</br>";
 					}
 				?>
 			</div>
