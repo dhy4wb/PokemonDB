@@ -34,6 +34,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
 		case '/search_result';
 				require 'search_result.php';
 				break;
+    case '/friend':
+        require 'friend.php';
+        break;
     default:
         http_response_code(404);
         exit('Not Found');
