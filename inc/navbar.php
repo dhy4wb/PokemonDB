@@ -20,9 +20,6 @@
 				
 				<ul class="nav navbar-nav">
 					<li><a href="/">Home</a></li>
-					<li><a href="">Simple</a></li>
-					<li><a href="">Pokedex</a></li>
-					<li><a href="/simpleform">Simple</a></li>
 				</ul>
 
 
