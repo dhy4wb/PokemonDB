@@ -3,10 +3,18 @@
 	require("inc/navbar.php");
 	require("inc/connectdb.php");
 	require("inc/database_functions.php");
-	$username = (isset($_GET['username'])) ? $_GET['username'] : $_SESSION['username'];
+	$username = "ERROR";
+	$already_friends = False;
+	if (isset($_GET['username'])) {
+		if (isset($_SESSION['username'])) {
+			$already_friends = check_friend($_GET['username'], $_SESSION['username']);
+		}
+		$username = $_GET["username"];
+	}
+	//$username = (isset($_GET['username'])) ? $_GET['username'] : $_SESSION['username'];
 	$userinfo = get_users($username);
 	$email = $userinfo[0]["email"];
-    $bio = $userinfo[0]["biography"];
+  $bio = $userinfo[0]["biography"];
 ?>
 <html>
 	<head>
@@ -40,20 +48,35 @@
 	</head>
 	<body>
 		<h1><?php echo $username?>'s Profile</h1>
+
 		<div class="grid-container">
+
 			<div class="item2">
 				<h1><?php echo $username?></h2>
 				<p><?php echo $email?></p>
-				<button onclick="friendFunction()" class="btn btn-dark">Add Friend</button>
+				<?php
+				if ($already_friends) {	
+					echo '<button onclick="removeFriend()" class="btn btn-danger">Remove Friend</button>';
+				}
+				else {	
+					echo '<button onclick="friendFunction()" class="btn btn-dark">Add Friend</button>';
+				}
+				?>
 				<script>
 					function friendFunction() {
-						add_friends($_SESSION["username"], $username);
+						location.replace("https://cs4750pokemon.uk.r.appspot.com/add_friend?fusername=".concat(<?php echo"'". $username ."'"?>));
+						//add_friends($_SESSION["username"], $username);
+					}
+					function removeFriend() {
+						if (confirm("Are you sure you want to remove this friend?")) {
+						location.replace("https://cs4750pokemon.uk.r.appspot.com/remove_friend?fusername=".concat(<?php echo"'". $username ."'"?>));
+						}
 					}
 				</script>
 			</div>
 			<div class="item3">
 				<h1>About Me</h1>
-				<textarea name="bio" form="bio-form"><?php echo $bio?></textarea>
+				<?php echo $bio?>
 			</div>
 			<div class="item5">
 				<h1>Favorite Pokemon</h1>
@@ -69,7 +92,7 @@
 				<?php
 					$friends = get_friends($username);
 					foreach($friends as $friend){
-						echo $friend."</br>";
+						echo $friend[0]."</br>";
 					}
 				?>
 			</div>

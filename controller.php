@@ -24,7 +24,6 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/add_like':
         require 'add_like.php';
         break;
-
 		case '/delete_account':
 				require 'delete_account.php';
 				break;
@@ -37,6 +36,12 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/friend':
         require 'friend.php';
         break;
+		case '/add_friend':
+				require 'add_friend.php';
+				break;
+		case '/remove_friend':
+				require 'remove_friend.php';
+				break;
     default:
         http_response_code(404);
         exit('Not Found');

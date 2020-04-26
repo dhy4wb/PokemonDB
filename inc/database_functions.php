@@ -120,4 +120,31 @@
 		$statement->closeCursor();
 		return $results;
 	}
+
+	function check_friend($friend, $username) {
+		global $db;
+		$query = "SELECT user1, user2 FROM friend WHERE user1 = :username AND user2 = :friend";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":username", $username);
+		$statement->bindValue(":friend", $friend);
+		$statement->execute();
+		$results = $statement->fetchAll();
+		$statement->closeCursor();
+		if (count($results) == 0) {
+			return False;
+		}
+		else {
+			return True;
+		}
+	}
+
+	function remove_friend($username, $friend) {
+		global $db;
+		$query = "DELETE FROM friend WHERE user1 = :username AND user2 = :friend";
+		$statement = $db->prepare($query);
+		$statement->bindValue(":username", $username);
+		$statement->bindValue(":friend", $friend);
+		$statement->execute();
+		$statement->closeCursor();
+	}
 ?>
