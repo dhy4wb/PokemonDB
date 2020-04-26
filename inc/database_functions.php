@@ -10,7 +10,7 @@
 		$statement->bindValue(":username", $username);
 		$statement->bindValue(":password", $password);
 		$statement->execute();
-		$results = $statement->fetchAll(); 
+		$results = $statement->fetchAll();
 		$statement->closeCursor();
 		/*
 		if(count($results) == 0){
@@ -77,14 +77,15 @@
 		return $results;
 	}
 
-	function get_favorite_pokemon($username) {
-		global $db;
-		$query = "SELECT pid FROM user NATURAL JOIN likes WHERE username = :username";
-		$statement = $db->prepare($query);
-		$statement->bindValue(":username", $username);
-		$statemenr->execute();
-		$results = $statement->fetchAll();
-		$statement->closeCursor();
-		return $results;
-	}
+  function get_pokemons($username) {
+    global $db;
+    $query = "SELECT name FROM likes NATURAL JOIN Pokemon WHERE username = :username";
+    $statement = $db->prepare($query);
+    $statement->bindValue(":username", $username);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    return $results;
+  }
+
 ?>

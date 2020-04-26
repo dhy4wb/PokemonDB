@@ -1,4 +1,4 @@
-<?php 
+<?php
 	//session_start();
 	require("inc/navbar.php");
 	require("inc/connectdb.php");
@@ -17,7 +17,7 @@
 		.item3 { grid-area: main; }
 		.item4 { grid-area: right; }
 		.item5 { grid-area: footer; }
-		
+
 		.grid-container {
 		  display: grid;
 		  grid-template-areas:
@@ -29,18 +29,18 @@
 		  background-color: #2196F3;
 		  padding: 10px;
 		}
-		
+
 		.grid-container > div {
 		  background-color: rgba(255, 255, 255, 0.8);
 		  text-align: center;
 		  padding: 20px 0;
 		  font-size: 30px;
 		}
-		</style>	
+		</style>
 	</head>
 	<body>
 		<h1>My Profile</h1>
-		<div class="grid-container">	
+		<div class="grid-container">
 			<div class="item2">
 				<h1><?php echo $_SESSION["username"]?></h2>
 				<p><?php echo $_SESSION["email"]?></p>
@@ -69,12 +69,12 @@
 			</div>
 			<div class="item5">
 				<h1>Favorite Pokemon</h1>
-				<?php
-					$favs = get_favorite_pokemon($_SESSION["username"]);
-					foreach($favs as $fav) {
-						echo $fav[0]."</br>";
-					}
-				?>
+        <?php
+          $pokemons = get_pokemons($_SESSION["username"]);
+          foreach($pokemons as $pokemon){
+            echo $pokemon['name']."</br>";
+          }
+        ?>
 			</div>
 			<div class="item4">
 				<h1>Friends</h1>
@@ -86,6 +86,6 @@
 				?>
 			</div>
 		</div>
-		
+
 	</body>
 </html>

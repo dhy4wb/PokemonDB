@@ -14,12 +14,17 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
         break;
     case '/type':
         require 'type.php';
-		case '/profile':
-				require 'profile.php';
-				break;
-		case '/signup':
-				require 'signup.php';
-				break;
+        break;
+    case '/profile':
+	      require 'profile.php';
+        break;
+    case '/signup':
+        require 'signup.php';
+        break;
+    case '/add_like':
+        require 'add_like.php';
+        break;
+
 		case '/delete_account':
 				require 'delete_account.php';
 				break;
