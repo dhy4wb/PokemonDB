@@ -1,5 +1,6 @@
 # PokemonDB
 CS 4750 Databases Project
+Pokemon website used to retrieve information about pokemon and save favorite pokemon
 
 ### Notes (as of 4/23/2020)
 * required files seem to only take effect when in another folder (in our case it was /inc)
